@@ -56,6 +56,10 @@ void ADogdgeballProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherAct
 			UGameplayStatics::PlaySoundAtLocation(this, BounceSound, GetActorLocation(), 1.0f,
 				1.0f, 3.0f, BounceSoundAttenuation);
 		}
+
+		if (HitParticles != nullptr) {
+			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticles, GetActorTransform());
+		}
 		Destroy();
 	}
 }
