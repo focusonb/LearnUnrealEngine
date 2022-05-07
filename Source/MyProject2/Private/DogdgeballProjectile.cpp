@@ -54,7 +54,7 @@ void ADogdgeballProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherAct
 
 		if (BounceSound != nullptr && NormalImpulse.Size() > 600.0f) {
 			UGameplayStatics::PlaySoundAtLocation(this, BounceSound, GetActorLocation(), 1.0f,
-				FMath::RandRange(0.7f, 1.3f));
+				1.0f, 3.0f, BounceSoundAttenuation);
 		}
 		Destroy();
 	}

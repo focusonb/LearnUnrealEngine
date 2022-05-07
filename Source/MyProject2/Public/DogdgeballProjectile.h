@@ -35,6 +35,8 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = Sound)
 		class USoundBase* BounceSound;
+	UPROPERTY(EditDefaultsOnly, Category = Sound)
+		class USoundAttenuation* BounceSoundAttenuation;
 
 public:	
 	// Called every frame
