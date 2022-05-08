@@ -27,12 +27,15 @@ public:
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
-public:
-	AMyProject2Character();
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Input)
-	float TurnRateGamepad;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Input)
+		float TurnRateGamepad;
+
+public:
+	AMyProject2Character();
+	void loseLife(float damage);
+
 
 	virtual void OnDeath_Implementation() override;
 	virtual void OnTakeDamage_Implementation() override;

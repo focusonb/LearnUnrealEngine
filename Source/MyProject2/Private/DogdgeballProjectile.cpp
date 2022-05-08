@@ -47,10 +47,7 @@ void ADogdgeballProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherAct
 
 	AMyProject2Character* Player = Cast<AMyProject2Character>(OtherActor);
 	if (Player != nullptr){
-		UHealthComponent* HealthComponent = Player->FindComponentByClass<UHealthComponent>();
-		if (HealthComponent != nullptr) {
-			HealthComponent->LoseHealth(Damage);
-		}
+		Player->loseLife(Damage);
 
 		if (BounceSound != nullptr && NormalImpulse.Size() > 600.0f) {
 			UGameplayStatics::PlaySoundAtLocation(this, BounceSound, GetActorLocation(), 1.0f,

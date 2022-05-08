@@ -61,6 +61,13 @@ AMyProject2Character::AMyProject2Character()
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health Component"));
 }
 
+void AMyProject2Character::loseLife(float damage)
+{
+	if (HealthComponent != nullptr) {
+		HealthComponent->LoseHealth(damage);
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Input
 
@@ -122,6 +129,7 @@ void AMyProject2Character::OnTakeDamage_Implementation()
 {
 	ADodgeballPlayerController* PlayerController = Cast<ADodgeballPlayerController>(GetController());
 	if (PlayerController != nullptr) {
+		
 		PlayerController->UpdateHealthPercent(HealthComponent->GetHealthPercent());
 	}
 }
